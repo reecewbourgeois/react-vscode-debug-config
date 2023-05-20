@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        /* A task to start the react app in the terminal */
+        {
+            "label": "react app start",
+            "type": "shell",
+            "command": "npm start",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "clear": true,
+                "panel": "dedicated"
+            },
+            "problemMatcher": {
+                "owner": "custom", // This is not needed but, required by the problemMatcher Object
+                "pattern": {
+                    "regexp": "^$" // This is not needed but, required by the problemMatcher Object
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ">", // Signals the begin of the Task
+                    "endsPattern": "ready in" // Signals that now the initialization of the task is complete
+                }
+            }
+        },
+        /* A task to stop the react app in the terminal set up by the previous task */
+        {
+            "label": "react app stop",
+            "type": "shell",
+            "command": "Stop-Process -Name 'node'",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "close": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
